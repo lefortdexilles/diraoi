@@ -47,6 +47,12 @@ criter = st.selectbox('Critère de notation:', liste_criter2)
 x_axis = criter[0]
 y_axis = criter[1]
 
+#def add_jitter(values, scale=0.2):
+ #   return values + np.random.uniform(-scale, scale, size=len(values))
+
+#df["X_jitter"] = add_jitter(df[x_axis])
+#df["Y_jitter"] = add_jitter(df[y_axis])
+
 fig =px.scatter(df, x=x_axis, y=y_axis, color='pays', hover_data='pays', size_max=1000)
 
 fig.add_shape(type='line', 
