@@ -4,10 +4,18 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import numpy as np
 
+
 st.set_page_config(page_title = "Dasboard")
                    #layout='')
 
-df = pd.read_excel('gdvalaoi.xlsx', sheet_name='Feuil1')
+xls = pd.ExcelFile('gdval4.xlsx')
+sheet_name = xls.sheet_names
+
+st.sidebar.header('Sélectionnez les sous-jacents de la note res')
+
+selected_sjcts = st.sidebar.selectbox("Selectionnez le sous-jacent:", sheet_name)
+
+df = pd.read_excel(xls, sheet_name=selected_sjcts)
 
 st.sidebar.header('Sélectionnez la région')
 
